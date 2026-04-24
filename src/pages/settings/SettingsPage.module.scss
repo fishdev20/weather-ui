@@ -1,0 +1,25 @@
+.settingsPage {
+  padding: 0.4rem 0 1rem;
+  display: grid;
+  gap: 1.1rem;
+}
+
+.unitsTitle {
+  margin: 0;
+  color: var(--ink-900);
+  font-size: clamp(1.25rem, 3vw, 1.55rem);
+  letter-spacing: -0.02em;
+}
+
+.settingsGrid {
+  margin-top: 0.2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.95rem;
+}
+
+@media (max-width: 42rem) {
+  .settingsGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,133 @@
+@use '../../styles/variables' as *;
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.searchBar {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+
+  input {
+    width: 100%;
+    min-height: 2.25rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: $radius-sm;
+    background: var(--panel-bg);
+    color: var(--ink-900);
+    padding: 0 0.8rem;
+
+    &::placeholder {
+      color: var(--ink-500);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--focus-ring);
+      outline-offset: 2px;
+    }
+  }
+}
+
+.iconButton {
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: $radius-sm;
+  background: var(--panel-strong);
+  color: var(--ink-700);
+  display: inline-flex;
+  place-content: center;
+  place-items: center;
+  cursor: pointer;
+
+  &:hover {
+    background: color-mix(in oklab, var(--panel-bg) 70%, var(--accent-weak));
+    color: var(--ink-900);
+  }
+
+  svg {
+    width: 1.15rem;
+    height: 1.15rem;
+  }
+}
+
+.unitToggle {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border-subtle);
+  border-radius: $radius-sm;
+  overflow: hidden;
+
+  button {
+    min-width: 4.3rem;
+    min-height: 2.25rem;
+    border: 0;
+    border-left: 1px solid var(--border-subtle);
+    background: transparent;
+    color: var(--ink-700);
+    cursor: pointer;
+    padding: 0 0.8rem;
+  }
+
+  button:first-child {
+    border-left: 0;
+  }
+}
+
+.activeUnit {
+  background: var(--panel-strong) !important;
+  color: var(--ink-900) !important;
+  font-weight: 700;
+}
+
+.placeholder {
+  padding: 1rem 0;
+}
+
+.kicker {
+  margin-bottom: 0.5rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-500);
+}
+
+.helperText {
+  color: var(--ink-700);
+  margin-top: 0.25rem;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 42rem) {
+  .controls {
+    flex-wrap: wrap;
+  }
+
+  .unitToggle {
+    width: 100%;
+
+    button {
+      flex: 1;
+    }
+  }
+}
