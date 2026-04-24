@@ -1,0 +1,279 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.app {
+  width: min(74rem, 100%);
+  margin-inline: auto;
+  padding: clamp(1rem, 2.5vw, 2rem);
+  display: grid;
+  gap: clamp(0.8rem, 2vw, 1.1rem);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-4;
+  padding: clamp(0.8rem, 1.6vw, 1rem) clamp(1rem, 2vw, 1.25rem);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+}
+
+.brandLogo {
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  place-content: center;
+  place-items: center;
+  font-size: 1rem;
+  border-radius: 999px;
+  background: var(--accent-weak);
+  border: 1px solid var(--border-subtle);
+  color: var(--ink-900);
+
+  svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}
+
+.brandName {
+  font-family: $font-heading;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.navActions {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+}
+
+.iconButton {
+  width: 2.1rem;
+  height: 2.1rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: $radius-sm;
+  background: var(--panel-strong);
+  color: var(--ink-700);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 180ms $ease-standard;
+
+  &:hover {
+    color: var(--ink-900);
+    background: color-mix(in oklab, var(--panel-bg) 70%, var(--accent-weak));
+  }
+
+  svg {
+    width: 1.15rem;
+    height: 1.15rem;
+  }
+}
+
+.favoriteActive {
+  color: var(--warn);
+  border-color: color-mix(in oklab, var(--warn) 35%, var(--border-subtle));
+}
+
+.layoutGrid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: clamp(0.8rem, 2vw, 1rem);
+}
+
+.panel {
+  padding: clamp(1rem, 2vw, 1.3rem);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.kicker {
+  margin-bottom: $space-3;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-500);
+}
+
+.currentRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: $space-3;
+}
+
+.currentTemp {
+  @include stat-value;
+  font-size: clamp(2.6rem, 6vw, 4rem);
+  line-height: 0.96;
+}
+
+.currentCondition {
+  margin-top: $space-2;
+  color: var(--ink-700);
+}
+
+.currentRange {
+  padding: 0.4rem 0.7rem;
+  border-radius: $radius-sm;
+  background: var(--accent-weak);
+  color: var(--ink-700);
+  font-weight: 600;
+}
+
+.currentUpdated {
+  margin-top: $space-4;
+  color: var(--ink-500);
+  font-size: 0.9rem;
+}
+
+.insights {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: $space-2;
+  }
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    gap: $space-3;
+    padding: $space-2 $space-3;
+    border-radius: $radius-sm;
+    border: 1px dashed var(--border-subtle);
+  }
+
+  span {
+    color: var(--ink-700);
+  }
+
+  strong {
+    color: var(--ink-900);
+  }
+}
+
+.warn {
+  color: var(--warn) !important;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: $space-2;
+}
+
+.metricTile {
+  padding: $space-3;
+  border-radius: $radius-sm;
+  border: 1px dashed var(--border-subtle);
+  display: grid;
+  gap: $space-1;
+
+  span {
+    color: var(--ink-500);
+    font-size: 0.82rem;
+  }
+
+  strong {
+    @include stat-value;
+    font-size: 1.06rem;
+  }
+}
+
+.forecastHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: $space-3;
+}
+
+.meta {
+  color: var(--ink-500);
+  font-size: 0.9rem;
+}
+
+.forecastGrid {
+  margin-top: $space-2;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: $space-2;
+}
+
+.dayCard {
+  border-radius: $radius-sm;
+  border: 1px dashed var(--border-subtle);
+  padding: $space-3;
+  display: grid;
+  gap: $space-1;
+}
+
+.dayCardDay {
+  font-weight: 700;
+}
+
+.dayCardIcon {
+  font-size: 1.25rem;
+}
+
+.dayCardCondition,
+.dayCardRain {
+  color: var(--ink-500);
+  font-size: 0.85rem;
+}
+
+.dayCardRange {
+  display: flex;
+  justify-content: space-between;
+  margin-top: $space-1;
+
+  strong {
+    color: var(--ink-900);
+  }
+
+  span {
+    color: var(--ink-700);
+  }
+}
+
+@media (max-width: 68rem) {
+  .layoutGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .metricsGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .forecastGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 42rem) {
+  .brandName {
+    display: none;
+  }
+
+  .metricsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .forecastGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .currentRow {
+    flex-direction: column;
+    align-items: start;
+  }
+}

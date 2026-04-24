@@ -1,0 +1,118 @@
+@use './variables' as *;
+@use './mixins' as *;
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap');
+
+:root {
+  color-scheme: light;
+  font-family: $font-body;
+  line-height: 1.5;
+  font-weight: 400;
+  --bg-canvas: oklch(97.8% 0.007 245);
+  --bg-accent: oklch(93% 0.04 220);
+  --panel-bg: oklch(99.4% 0.004 250);
+  --panel-strong: oklch(96.4% 0.016 242);
+  --ink-900: oklch(24% 0.03 250);
+  --ink-700: oklch(39% 0.026 248);
+  --ink-500: oklch(53% 0.022 246);
+  --border-subtle: oklch(86% 0.013 245);
+  --accent: oklch(62% 0.14 233);
+  --accent-weak: color-mix(in oklab, var(--accent) 16%, var(--panel-bg));
+  --good: oklch(69% 0.13 155);
+  --warn: oklch(74% 0.16 84);
+  --focus-ring: oklch(69% 0.14 235);
+  color: var(--ink-900);
+  background-color: var(--bg-canvas);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --bg-canvas: oklch(16% 0.02 252);
+    --bg-accent: oklch(24% 0.04 238);
+    --panel-bg: oklch(21.5% 0.02 252);
+    --panel-strong: oklch(27% 0.025 245);
+    --ink-900: oklch(94% 0.008 250);
+    --ink-700: oklch(82% 0.012 250);
+    --ink-500: oklch(68% 0.012 252);
+    --border-subtle: oklch(36% 0.012 250);
+    --accent: oklch(74% 0.12 228);
+    --accent-weak: color-mix(in oklab, var(--accent) 18%, var(--panel-bg));
+    --good: oklch(76% 0.12 156);
+    --warn: oklch(80% 0.16 85);
+    --focus-ring: oklch(78% 0.14 232);
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg-canvas: oklch(16% 0.02 252);
+  --bg-accent: oklch(24% 0.04 238);
+  --panel-bg: oklch(21.5% 0.02 252);
+  --panel-strong: oklch(27% 0.025 245);
+  --ink-900: oklch(94% 0.008 250);
+  --ink-700: oklch(82% 0.012 250);
+  --ink-500: oklch(68% 0.012 252);
+  --border-subtle: oklch(36% 0.012 250);
+  --accent: oklch(74% 0.12 228);
+  --accent-weak: color-mix(in oklab, var(--accent) 18%, var(--panel-bg));
+  --good: oklch(76% 0.12 156);
+  --warn: oklch(80% 0.16 85);
+  --focus-ring: oklch(78% 0.14 232);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100vh;
+}
+
+body {
+  margin: 0;
+  color: var(--ink-900);
+  background:
+    radial-gradient(110rem 48rem at 10% -10%, var(--bg-accent), transparent 60%),
+    radial-gradient(
+      90rem 44rem at 100% 0%,
+      color-mix(in oklab, var(--accent) 12%, transparent),
+      transparent 72%
+    ),
+    var(--bg-canvas);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include heading-reset;
+}
+
+p {
+  margin: 0;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  @include focus-ring;
+}

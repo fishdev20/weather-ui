@@ -1,0 +1,19 @@
+$font-body: 'Instrument Sans', sans-serif;
+$font-heading: 'Plus Jakarta Sans', sans-serif;
+
+$radius-xs: 0.45rem;
+$radius-sm: 0.7rem;
+$radius-md: 1rem;
+$radius-lg: 1.4rem;
+
+$space-1: 0.25rem;
+$space-2: 0.5rem;
+$space-3: 0.75rem;
+$space-4: 1rem;
+$space-5: 1.5rem;
+$space-6: 2rem;
+
+$shadow-soft: 0 12px 30px color-mix(in oklab, var(--ink-900) 12%, transparent);
+$shadow-deep: 0 24px 55px color-mix(in oklab, var(--ink-900) 18%, transparent);
+
+$ease-standard: cubic-bezier(0.22, 0.61, 0.36, 1);
