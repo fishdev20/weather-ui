@@ -5,9 +5,9 @@ export type WeatherVisual = {
 }
 
 export const OPEN_METEO_WEATHER_CODE_MAP: Record<number, WeatherVisual> = {
-  0: { label: 'Clear sky', dayIcon: '☀', nightIcon: '🌙' },
-  1: { label: 'Mainly clear', dayIcon: '🌤', nightIcon: '🌙' },
-  2: { label: 'Partly cloudy', dayIcon: '⛅', nightIcon: '☁' },
+  0: { label: 'Clear sky', dayIcon: '🌞', nightIcon: '🌙' },
+  1: { label: 'Mainly clear', dayIcon: '🌤️', nightIcon: '🌙' },
+  2: { label: 'Partly cloudy', dayIcon: '⛅️', nightIcon: '☁' },
   3: { label: 'Overcast', dayIcon: '☁', nightIcon: '☁' },
   45: { label: 'Fog', dayIcon: '🌫', nightIcon: '🌫' },
   48: { label: 'Depositing rime fog', dayIcon: '🌫', nightIcon: '🌫' },

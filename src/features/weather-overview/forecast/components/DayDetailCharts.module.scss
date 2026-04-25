@@ -1,0 +1,71 @@
+@use '../../../../styles/variables' as *;
+
+.dayCharts {
+  margin-top: 0.8rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.dayChartCard {
+  border: 1px solid color-mix(in oklab, var(--border-subtle) 75%, transparent);
+  border-radius: $radius-sm;
+  background: color-mix(in oklab, var(--panel-bg) 86%, var(--bg-accent));
+  padding: 0.55rem 0.6rem 0.45rem;
+}
+
+.dayChartTitle {
+  margin: 0;
+  color: var(--ink-700);
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+}
+
+.dayChartCanvas {
+  margin-top: 0.3rem;
+
+  :global(.recharts-tooltip-wrapper) {
+    z-index: 90;
+  }
+
+  :global(.recharts-default-tooltip) {
+    border: 1px solid color-mix(in oklab, var(--border-subtle) 80%, transparent) !important;
+    border-radius: 0.5rem !important;
+    background: color-mix(in oklab, var(--panel-bg) 92%, var(--bg-accent)) !important;
+    color: var(--ink-900) !important;
+  }
+}
+
+.dayChartSkeletonTitle {
+  width: 46%;
+  height: 0.82rem;
+  border-radius: 0.35rem;
+}
+
+.dayChartSkeletonCanvas {
+  margin-top: 0.45rem;
+  width: 100%;
+  height: 170px;
+  border-radius: 0.55rem;
+}
+
+@media (max-width: 42rem) {
+  .dayCharts {
+    gap: 0.5rem;
+  }
+
+  .dayChartCard {
+    padding: 0.5rem 0.55rem 0.42rem;
+  }
+
+  .dayChartSkeletonTitle {
+    width: 58%;
+    height: 0.74rem;
+  }
+
+  .dayChartSkeletonCanvas {
+    height: 132px;
+    margin-top: 0.38rem;
+  }
+}

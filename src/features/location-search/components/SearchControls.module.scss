@@ -1,0 +1,234 @@
+@use '../../../styles/variables' as *;
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.searchBar {
+  flex: 1;
+  min-width: 0;
+}
+
+.rightControls {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.searchDropdownWrapper {
+  position: relative;
+
+  input {
+    width: 100%;
+    min-height: 2.5rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: $radius-sm;
+    background: var(--panel-bg);
+    color: var(--ink-900);
+    padding: 0 2.9rem;
+
+    &::placeholder {
+      color: var(--ink-500);
+    }
+  }
+}
+
+.searchDropdownWrapperOpen {
+  input {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-color: transparent;
+  }
+}
+
+.searchDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.55rem;
+  border: 1px solid var(--border-subtle);
+  border-top: 0;
+  border-radius: 0 0 $radius-sm $radius-sm;
+  background: color-mix(in oklab, var(--panel-bg) 92%, var(--bg-accent));
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0.9rem 1.6rem -1rem color-mix(in oklab, var(--ink-900) 35%, transparent);
+  max-height: 16rem;
+  overflow: auto;
+  opacity: 0;
+  transform: translateY(-0.3rem);
+  transform-origin: top center;
+  pointer-events: none;
+  transition:
+    opacity 160ms ease,
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.searchDropdownOpen {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dropdownLabel {
+  margin: 0;
+  padding: 0.1rem 0.35rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+}
+
+.dropdownEmpty {
+  margin: 0;
+  padding: 0.45rem 0.55rem;
+  color: var(--ink-500);
+  font-size: 0.9rem;
+}
+
+.dropdownLoading {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.35rem 0.4rem;
+}
+
+.dropdownLoadingLine {
+  height: 2.4rem;
+  border-radius: 0.5rem;
+}
+
+.dropdownItem {
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink-700);
+  font-weight: 500;
+  line-height: 1.25;
+  min-height: 2.7rem;
+  padding: 0 0.55rem;
+
+  &:hover {
+    background: color-mix(in oklab, var(--panel-bg) 68%, var(--accent-weak));
+    color: var(--ink-900);
+  }
+}
+
+.iconButton {
+  position: absolute;
+  top: 50%;
+  left: 0.35rem;
+  transform: translateY(-50%);
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-500);
+  display: inline-flex;
+  place-content: center;
+  place-items: center;
+  cursor: pointer;
+
+  &:hover {
+    background: color-mix(in oklab, var(--panel-bg) 65%, var(--accent-weak));
+    color: var(--ink-900);
+  }
+
+  svg {
+    width: 1.05rem;
+    height: 1.05rem;
+  }
+}
+
+.clearInputButton {
+  position: absolute;
+  top: 50%;
+  right: 0.35rem;
+  transform: translateY(-50%);
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-500);
+  display: inline-flex;
+  place-content: center;
+  place-items: center;
+  cursor: pointer;
+
+  &:hover {
+    background: color-mix(in oklab, var(--panel-bg) 65%, var(--accent-weak));
+    color: var(--ink-900);
+  }
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+.unitToggle {
+  min-width: 8.6rem;
+}
+
+.currentLocationButton {
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: $radius-sm;
+  background: var(--panel-strong);
+  color: var(--ink-700);
+
+  &:hover:not(:disabled) {
+    background: color-mix(in oklab, var(--panel-bg) 70%, var(--accent-weak));
+    color: var(--ink-900);
+  }
+}
+
+.currentLocationButtonActive {
+  border-color: color-mix(in oklab, var(--accent) 35%, var(--border-subtle));
+  color: var(--ink-900);
+  background: color-mix(in oklab, var(--accent) 20%, var(--panel-strong));
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 76rem) {
+  .controls {
+    flex-wrap: wrap;
+  }
+
+  .unitToggle {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .rightControls {
+    width: 100%;
+  }
+}

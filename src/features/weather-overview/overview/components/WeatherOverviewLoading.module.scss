@@ -1,0 +1,131 @@
+@use '../../../../styles/variables' as *;
+
+.overviewLoading {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  gap: 1rem;
+}
+
+.loadingMain,
+.loadingSide,
+.loadingChart {
+  border-radius: $radius-md;
+  border: 1px solid color-mix(in oklab, var(--border-subtle) 78%, transparent);
+  background: color-mix(in oklab, var(--panel-bg) 88%, var(--bg-accent));
+  padding: 1rem;
+}
+
+.loadingMain {
+  min-height: 19rem;
+  display: grid;
+  align-content: start;
+  gap: 0.55rem;
+}
+
+.loadingSide {
+  min-height: 19rem;
+  display: grid;
+  align-content: start;
+  gap: 0.55rem;
+}
+
+.loadingChart {
+  grid-column: 1 / span 1;
+  min-height: 17rem;
+  display: grid;
+  align-content: start;
+  gap: 0.65rem;
+}
+
+.loadingHeaderLine {
+  width: 46%;
+  height: 1.15rem;
+}
+
+.loadingSubLine {
+  width: 62%;
+  height: 0.9rem;
+}
+
+.loadingTempValue {
+  margin-top: 0.3rem;
+  width: 34%;
+  height: 2.8rem;
+}
+
+.loadingSummaryLine {
+  width: 58%;
+  height: 0.95rem;
+}
+
+.loadingQuickStats {
+  margin-top: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.loadingQuickStatItem {
+  height: 4rem;
+}
+
+.loadingPanelTitle {
+  width: 45%;
+  height: 1.02rem;
+}
+
+.loadingTenDayRows {
+  display: grid;
+  gap: 0.42rem;
+}
+
+.loadingTenDayRow {
+  height: 1.55rem;
+}
+
+.loadingHourlyRow {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.loadingHourlyItem {
+  width: 4.8rem;
+  height: 6rem;
+  flex: 0 0 auto;
+}
+
+.loadingDetailsGrid {
+  margin-top: 0.2rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.loadingDetailCell {
+  height: 2.8rem;
+}
+
+@media (max-width: 76rem) {
+  .overviewLoading {
+    grid-template-columns: 1fr;
+  }
+
+  .loadingChart {
+    grid-column: 1;
+  }
+
+  .loadingMain,
+  .loadingSide,
+  .loadingChart {
+    min-height: auto;
+  }
+
+  .loadingHourlyRow {
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+  }
+
+  .loadingQuickStats {
+    grid-template-columns: 1fr;
+  }
+}

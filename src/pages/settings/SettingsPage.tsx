@@ -1,6 +1,6 @@
 import { Drop, Gauge, Ruler, Thermometer, Wind } from '@phosphor-icons/react'
-import { SettingGroup } from '../../features/settings/SettingGroup'
-import { useUnitPreferences } from '../../features/unit-toggle/useUnitPreferences'
+import { SettingGroup } from '../../features/unit-preferences/components/SettingGroup'
+import { useUnitPreferences } from '../../features/unit-preferences/hooks/useUnitPreferences'
 import styles from './SettingsPage.module.scss'
 
 export function SettingsPage() {

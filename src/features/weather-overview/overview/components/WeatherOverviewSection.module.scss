@@ -1,0 +1,113 @@
+@use '../../../../styles/variables' as *;
+
+.weatherBoard {
+  padding: 1rem 0;
+}
+
+.overviewGrid {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  min-width: 0;
+  gap: 1rem;
+}
+
+.heroCard {
+  flex: 1 1 0;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  border: 1px solid color-mix(in oklab, var(--border-subtle) 80%, transparent);
+  border-radius: $radius-md;
+  background:
+    radial-gradient(
+      120% 120% at 12% 8%,
+      color-mix(in oklab, var(--accent) 16%, transparent),
+      transparent 58%
+    ),
+    radial-gradient(
+      130% 100% at 100% 0%,
+      color-mix(in oklab, var(--bg-accent) 68%, transparent),
+      transparent 64%
+    ),
+    color-mix(in oklab, var(--panel-bg) 90%, var(--bg-accent));
+  box-shadow: 0 16px 32px -28px color-mix(in oklab, var(--ink-900) 45%, transparent);
+}
+
+.dayDrawerLayer {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: color-mix(in oklab, var(--ink-900) 35%, transparent);
+  display: grid;
+  align-items: end;
+}
+
+.dayDrawer {
+  border-top-left-radius: $radius-md;
+  border-top-right-radius: $radius-md;
+  border: 1px solid color-mix(in oklab, var(--border-subtle) 80%, transparent);
+  border-bottom: 0;
+  background: color-mix(in oklab, var(--panel-bg) 95%, var(--bg-accent));
+  padding: 0.85rem 0.9rem calc(1rem + env(safe-area-inset-bottom));
+  max-height: min(88vh, calc(100dvh - 1rem));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  animation: day-drawer-up 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dayDrawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+
+  h4 {
+    margin: 0;
+    color: var(--ink-900);
+    font-size: 1rem;
+  }
+}
+
+.dayDrawerClose {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--panel-bg) 75%, var(--bg-accent));
+}
+
+@keyframes day-drawer-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0.8;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.helperText {
+  color: var(--ink-700);
+  margin-top: 0.25rem;
+}
+
+.errorText {
+  color: var(--warn);
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 76rem) {
+  .overviewGrid {
+    flex-direction: column;
+  }
+
+  .heroCard {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+}

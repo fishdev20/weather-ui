@@ -1,0 +1,144 @@
+.detailsCard {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 1rem;
+}
+
+.detailsTitle {
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 1.02rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-700);
+}
+
+.detailsGrid {
+  margin-top: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.detailItem {
+  border: 0;
+  border-radius: 0;
+  padding: 0.75rem;
+  display: grid;
+  gap: 0.32rem;
+
+  p {
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.9rem;
+    color: var(--ink-500);
+
+    svg {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+
+  strong {
+    color: var(--ink-900);
+    font-size: 1.08rem;
+  }
+}
+
+.metricBigValue {
+  font-size: 1.9rem !important;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.metricSubText {
+  color: var(--ink-700);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.metricBar {
+  position: relative;
+  margin-top: 0.25rem;
+  height: 1.15rem;
+}
+
+.metricBarTrack {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 0.16rem;
+  transform: translateY(-50%);
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--ink-700) 28%, transparent);
+}
+
+.metricBarFill {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 0.16rem;
+  transform: translateY(-50%);
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--accent) 82%, white 18%);
+}
+
+.metricBarEnd {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 0.16rem;
+  height: 0.72rem;
+  transform: translateY(-50%);
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--accent) 72%, white 28%);
+}
+
+.metricBarThumb {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 2.35rem;
+  padding: 0.08rem 0.38rem;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--accent) 62%, var(--bg-canvas));
+  color: white;
+  box-shadow: 0 0.18rem 0.45rem -0.3rem color-mix(in oklab, var(--accent) 45%, transparent);
+  font-size: 0.86rem;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+  line-height: 1.1;
+}
+
+.uvBar {
+  position: relative;
+  margin-top: 0.2rem;
+  height: 0.35rem;
+}
+
+.uvBarTrack {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--border-subtle) 85%, transparent);
+}
+
+.uvBarFill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #22c55e 0%, #facc15 45%, #f97316 72%, #ec4899 100%);
+}
+
+@media (max-width: 76rem) {
+  .detailsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

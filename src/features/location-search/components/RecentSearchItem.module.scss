@@ -1,0 +1,94 @@
+.recentRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 2.7rem;
+
+  & + .recentRow {
+    border-top: 1px solid var(--border-subtle);
+  }
+}
+
+.dropdownItem {
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink-700);
+  font-weight: 500;
+  line-height: 1.25;
+  min-height: 2.7rem;
+  padding: 0 0.55rem;
+
+  &:hover {
+    background: color-mix(in oklab, var(--panel-bg) 68%, var(--accent-weak));
+    color: var(--ink-900);
+  }
+}
+
+.deleteRecentButton {
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-500);
+
+  &:hover {
+    background: color-mix(in oklab, var(--panel-bg) 64%, var(--warn));
+    color: var(--ink-900);
+  }
+
+  svg {
+    width: 0.95rem;
+    height: 0.95rem;
+  }
+}
+
+.dropdownItemLine {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.dropdownItemName {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+  line-height: 1.25;
+}
+
+.dropdownItemMeta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--ink-700);
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.previewLoading {
+  color: var(--ink-500);
+  font-size: 0.82rem;
+  margin-left: auto;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.previewLoadingSkeleton {
+  margin-left: auto;
+  width: 4.5rem;
+  height: 0.95rem;
+  border-radius: 999px;
+}

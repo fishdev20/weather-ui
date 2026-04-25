@@ -1,0 +1,19 @@
+.settingGroup {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.settingLabel {
+  color: var(--ink-500);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.settingControl {
+  width: 100%;
+}

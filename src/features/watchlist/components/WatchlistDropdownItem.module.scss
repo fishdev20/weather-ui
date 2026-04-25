@@ -1,0 +1,124 @@
+.watchlistRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.watchlistItemMain {
+  width: 100%;
+  min-height: 3.2rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  border: 0;
+  border-radius: 0.45rem;
+  background: transparent;
+  color: var(--ink-700);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.38rem 0.5rem;
+  gap: 0.26rem;
+  text-align: left;
+
+  &:hover {
+    background: color-mix(in oklab, var(--panel-bg) 70%, var(--accent-weak));
+    color: var(--ink-900);
+  }
+}
+
+.watchlistItemTop {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.watchlistItemName {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.watchlistItemNameLoading {
+  flex: 1;
+  min-width: 0;
+  height: 0.88rem;
+  border-radius: 999px;
+}
+
+.watchlistItemMeta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.24rem;
+  color: var(--ink-700);
+  font-size: 0.76rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.watchlistItemMetaLoading {
+  width: 4.2rem;
+  height: 0.78rem;
+  border-radius: 999px;
+}
+
+.watchlistItemSub {
+  width: 100%;
+  color: var(--ink-500);
+  font-size: 0.74rem;
+  font-weight: 500;
+  line-height: 1.28;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.watchlistItemSubLoading {
+  width: min(12rem, 88%);
+  height: 0.72rem;
+  border-radius: 999px;
+}
+
+.watchlistRemove {
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-500);
+
+  &:hover {
+    background: color-mix(in oklab, var(--panel-bg) 65%, var(--warn));
+    color: var(--ink-900);
+  }
+
+  svg {
+    width: 0.85rem;
+    height: 0.85rem;
+  }
+}
+
+.watchlistRemoveLoading {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 999px;
+}
+
+@media (max-width: 42rem) {
+  .watchlistItemMain {
+    min-height: 3.35rem;
+    padding: 0.42rem 0.5rem;
+  }
+
+  .watchlistItemMeta {
+    font-size: 0.72rem;
+  }
+
+  .watchlistItemSub {
+    font-size: 0.71rem;
+  }
+}

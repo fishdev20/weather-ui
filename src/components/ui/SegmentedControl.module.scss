@@ -1,0 +1,34 @@
+.segmentedControl {
+  display: grid;
+  grid-template-columns: repeat(var(--segment-count, 2), minmax(0, 1fr));
+  align-items: stretch;
+  border: 1px solid color-mix(in oklab, var(--border-subtle) 88%, transparent);
+  border-radius: 0.8rem;
+  overflow: hidden;
+  background: color-mix(in oklab, var(--panel-bg) 70%, var(--bg-canvas));
+  padding: 0.2rem;
+}
+
+.segmentButton {
+  min-height: 2.05rem;
+  border: 0;
+  background: transparent;
+  color: var(--ink-700);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 0.55rem;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.segmentButtonActive {
+  background: color-mix(in oklab, var(--accent) 40%, var(--panel-strong));
+  color: var(--ink-900);
+}
+
+.segmentButton:hover {
+  background: color-mix(in oklab, var(--accent-weak) 65%, var(--panel-bg));
+  color: var(--ink-900);
+}
